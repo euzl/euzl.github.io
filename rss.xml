@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[뉴디닐기 | Feed]]></title><description><![CDATA[Diary of new Dean( ); Record only development]]></description><link>https://euzl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Apr 2020 06:46:59 GMT</lastBuildDate><item><title><![CDATA[CLion과 친해지기 - File open 하는 방법]]></title><description><![CDATA[맥북에선 를 사용할 수가 없어서 을 사용하게 되었어요!
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[뉴디닐기 | Feed]]></title><description><![CDATA[Diary of new Dean( ); Record only development]]></description><link>https://euzl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Apr 2020 06:50:31 GMT</lastBuildDate><item><title><![CDATA[CLion과 친해지기 - File open 하는 방법]]></title><description><![CDATA[맥북에선 를 사용할 수가 없어서 을 사용하게 되었어요!
 생각보다 크게 불편하진 않았는데 C…]]></description><link>https://euzl.github.io/hello-clion_1/</link><guid isPermaLink="false">https://euzl.github.io/hello-clion_1/</guid><pubDate>Thu, 30 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;맥북에선 &lt;code class=&quot;language-text&quot;&gt;Visual Studio&lt;/code&gt;를 사용할 수가 없어서 &lt;code class=&quot;language-text&quot;&gt;CLion&lt;/code&gt;을 사용하게 되었어요!&lt;br&gt;
 생각보다 크게 불편하진 않았는데 &lt;del&gt;C++코딩을 할 일이 없었으니까^^&lt;/del&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;도우미로 들어가는 수업에서 중간플젝과제를 내주셔서.....&lt;br&gt;
 사용하던 중....&lt;br&gt;
 파일 오픈이 안 되는 에러가 발생하고 마는데..!&lt;/p&gt;
 &lt;img width=&quot;676&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 3 19 56&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80679659-4ad1b000-8af8-11ea-83be-a04d13c3affd.png&quot;&gt;
-*[error&amp;#xCF54;&amp;#xB4DC;&amp;#xAC00; &amp;#xC2E4;&amp;#xD589;&amp;#xB41C; &amp;#xAC8C; &amp;#xBCF4;&amp;#xC774;&amp;#xC96C;?]*
-&lt;p&gt;&lt;a href=&quot;https://blog.naver.com/strike0115/221519898666&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;조민국님 블로그 - [꿀팁] CLion에서 File I/O, File Open 하는 방법&lt;/a&gt;&lt;br&gt;
+*error&amp;#xCF54;&amp;#xB4DC;&amp;#xAC00; &amp;#xC2E4;&amp;#xD589;&amp;#xB41C; &amp;#xAC8C; &amp;#xBCF4;&amp;#xC774;&amp;#xC96C;?*
+&lt;p&gt;&lt;a href=&quot;https://blog.naver.com/strike0115/221519898666&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;조민국님 블로그 - [꿀팁] CLion에서 File I/O, File Open 하는 방법(링크)&lt;/a&gt;&lt;br&gt;
 위 블로그를 통해 해결할 수 있었습니다! &lt;/p&gt;
-&lt;p&gt;방법은 위 블로그에서 보시고, 기록용으로 간단하게 남겨두겠습니다.&lt;/p&gt;
+&lt;p&gt;방법은 위 블로그에서 보시고, 기록용으로 간단하게 남겨두겠습니다.
+&lt;br&gt;&lt;/p&gt;
 &lt;h2 id=&quot;해결방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;해결방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;해결방법&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;우측상단 &lt;code class=&quot;language-text&quot;&gt;Edit Configurations&lt;/code&gt; 클릭
+&lt;li&gt;우측상단 &lt;code class=&quot;language-text&quot;&gt;Edit Configurations&lt;/code&gt; 클릭 &lt;br&gt;
 &lt;img width=&quot;217&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 3 23 04&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80679705-5ae98f80-8af8-11ea-9b9b-7e1371c56e30.png&quot;&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Working directory&lt;/code&gt; 폴더를 현재 프로젝트 폴더로 설정!
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Working directory&lt;/code&gt; 폴더를 현재 프로젝트 폴더로 설정! &lt;br&gt;
 &lt;img width=&quot;773&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 3 21 13&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80679731-689f1500-8af8-11ea-893e-5e22d4e71707.png&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;open할 파일이 프로젝트폴더에 있는 경우
@@ -22,8 +23,8 @@
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;cmake-build-debug&lt;/code&gt;폴더에 넣으면 경로설정을 안 해도 된다. (블로그 참고)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;다시 실행해보면 잘 됨.
-&lt;img width=&quot;262&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 3 24 03&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80679738-6d63c900-8af8-11ea-917e-e012f9746476.png&quot;&gt;&lt;/li&gt;
+&lt;li&gt;다시 실행해보면 잘 됨. &lt;br&gt;
+&lt;img width=&quot;262&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 3 24 03&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80679738-6d63c900-8af8-11ea-917e-e012f9746476.png&quot;&gt; &lt;br&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;하지만 한글이 깨진다 ^^.... ㅎ 다음 포스팅에 계속....&lt;/p&gt;</content:encoded></item><item><title><![CDATA[하하.. 내용보지말고 당장 당신의 노트북을 백업하세유.. 호호..]]></title><description><![CDATA[음...
 지난 프로젝트를 정리하던 중 에전에 했던 프로젝트의 자료를 찾았는데 없네요?!!!!? 사건의 개요(눈물닦을 휴지준비)
