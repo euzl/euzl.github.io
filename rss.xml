@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[뉴디닐기 | Feed]]></title><description><![CDATA[Diary of new Dean( ); Record only development]]></description><link>https://euzl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 02 May 2020 06:54:28 GMT</lastBuildDate><item><title><![CDATA[CLion과 친해지기 - 한글적용 (UTF-8에러)]]></title><description><![CDATA[CLion에서 아무 설정도 없이 한글이 들어간 파일을 열면 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[뉴디닐기 | Feed]]></title><description><![CDATA[Diary of new Dean( ); Record only development]]></description><link>https://euzl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 02 May 2020 07:01:09 GMT</lastBuildDate><item><title><![CDATA[CLion과 친해지기 - 한글적용 (UTF-8에러)]]></title><description><![CDATA[CLion에서 아무 설정도 없이 한글이 들어간 파일을 열면 
 
 위와 같이 깨진다! ㅠㅠ  그러면서 인코딩 문제라고 한다. 구글링을 통해 Falcon님 블로그에서 해결법을 발견했다! 
 [Clion] 한글 깨짐 (UTF-8) windows-94…]]></description><link>https://euzl.github.io/hello-clion_2/</link><guid isPermaLink="false">https://euzl.github.io/hello-clion_2/</guid><pubDate>Sat, 02 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;CLion에서 아무 설정도 없이 한글이 들어간 파일을 열면 &lt;br&gt;
@@ -64,7 +64,7 @@
 때는 2019년…]]></description><link>https://euzl.github.io/mang-hat-eo-yo/</link><guid isPermaLink="false">https://euzl.github.io/mang-hat-eo-yo/</guid><pubDate>Fri, 10 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;음...&lt;br/&gt;
 지난 프로젝트를 정리하던 중 에전에 했던 프로젝트의 자료를 찾았는데 없네요?!!!!?&lt;br/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;사건의 개요(눈물닦을 휴지준비)&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;사건의 개요(눈물닦을 휴지준비)&lt;/strong&gt;&lt;br&gt;
 때는 2019년 7월 초.&lt;br/&gt;
 그램에 파이썬을 설치하다가 자꾸 실패!&lt;br/&gt;
 마침 포맷 한 번은 해줘야 겠다 싶었고... 백업을 하기 시작하는데... &lt;strong&gt;(비극의 시작)&lt;/strong&gt;&lt;br/&gt;
@@ -81,7 +81,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;여기까지... &lt;br/&gt;
 새벽부터 멘탈이 나가서 노트북, 외장하드, USB, 드라이브 싹싹 찾아보고&lt;br/&gt;
-복구프로그램(easeus -&gt; usb에서는 성능 ㄱㅊ. 노트북은 소생불가 ㅠ)으로도 확인해봤지만,,, so sad,,&lt;br/&gt;&lt;/p&gt;
+복구프로그램(&lt;code class=&quot;language-text&quot;&gt;easeus&lt;/code&gt; -&gt; usb에서는 성능 ㄱㅊ. 노트북은 소생불가 ㅠ)으로도 확인해봤지만,,, so sad,,&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;그나마 다행인 것은 포맷할 때 시간이 오래걸려서 &apos;0&apos;으로 덮어씌우는 방식으로 하지 않음! ㅎㅎ..&lt;br/&gt;
 복구프로그램에선 파일이 다 깨지고 이상한 형식으로 됐다.&lt;br/&gt;
 노트북 어딘가엔 있는 것 같은데... 왜냐면 복구용량이 370기가임(노트북이 256기가, 현재 130기가 사용중)&lt;br/&gt;&lt;/p&gt;
