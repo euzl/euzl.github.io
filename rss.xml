@@ -1,31 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[뉴디닐기 | Feed]]></title><description><![CDATA[Diary of new Dean( ); Record only development]]></description><link>https://euzl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 May 2020 19:28:14 GMT</lastBuildDate><item><title><![CDATA[CLion과 친해지기 - 한글적용 (UTF-8에러)]]></title><description><![CDATA[CLion에서 아무 설정도 없이 한글이 들어간 파일을 열면 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[뉴디닐기 | Feed]]></title><description><![CDATA[Diary of new Dean( ); Record only development]]></description><link>https://euzl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 02 May 2020 06:54:28 GMT</lastBuildDate><item><title><![CDATA[CLion과 친해지기 - 한글적용 (UTF-8에러)]]></title><description><![CDATA[CLion에서 아무 설정도 없이 한글이 들어간 파일을 열면 
 
 위와 같이 깨진다! ㅠㅠ  그러면서 인코딩 문제라고 한다. 구글링을 통해 Falcon님 블로그에서 해결법을 발견했다! 
 [Clion] 한글 깨짐 (UTF-8) windows-94…]]></description><link>https://euzl.github.io/hello-clion_2/</link><guid isPermaLink="false">https://euzl.github.io/hello-clion_2/</guid><pubDate>Sat, 02 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;CLion에서 아무 설정도 없이 한글이 들어간 파일을 열면 &lt;br&gt;
-&lt;img width=&quot;262&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 3 24 03&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80834202-30e4ba00-8c2b-11ea-96c1-8849cc046c2d.png&quot;&gt;
+&lt;img width=&quot;262&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 3 24 03&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80834202-30e4ba00-8c2b-11ea-96c1-8849cc046c2d.png&quot;&gt;&lt;br&gt;
 위와 같이 깨진다! ㅠㅠ &lt;/p&gt;
 &lt;p&gt;그러면서 &lt;code class=&quot;language-text&quot;&gt;UTF-8&lt;/code&gt;인코딩 문제라고 한다.&lt;/p&gt;
 &lt;p&gt;구글링을 통해 Falcon님 블로그에서 해결법을 발견했다! &lt;br&gt;
 &lt;a href=&quot;https://m-falcon.tistory.com/280&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;[Clion] 한글 깨짐 (UTF-8) windows-949&lt;/a&gt; &lt;br&gt;
 위 링크를 보고 따라하면 된다! &lt;/p&gt;
 &lt;p&gt;마찬가지로 기록용으로 방법을 적어둔다.&lt;br&gt;
-그리고 이 작업만 하면 CLion으로 C++코딩을 하는 데 전혀 무리가 없다. 오히려 콘솔창이 프로그램에 내장돼있어서 VS보다 편한 것 같기도!
+그리고 이 작업만 하면 CLion으로 C++코딩을 하는 데 전혀 무리가 없다. &lt;br&gt;
+오히려 콘솔창이 프로그램에 내장돼있어서 VS보다 편한 것 같기도!
 &lt;br&gt;&lt;/p&gt;
 &lt;h2 id=&quot;해결방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;해결방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;해결방법&lt;/h2&gt;
-&lt;p&gt;위 블로그의 내용을 따라갔지만 상황에 맞춰서 조금씩 변형했다.
-방법이 두 가지가 있는데, (둘 중 하나만 하면 된다.)&lt;/p&gt;
+&lt;p&gt;위 블로그의 내용을 따라갔지만 상황에 맞춰서 조금씩 변형했다.&lt;br&gt;
+방법이 두 가지가 있는데 둘 중 하나만 하면 된다.&lt;/p&gt;
 &lt;h3 id=&quot;내가-한-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%82%B4%EA%B0%80-%ED%95%9C-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;내가 한 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;내가 한 방법&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Preferences에 들어간다.&lt;br&gt;
 &lt;img width=&quot;209&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 5 15 02&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80834210-33dfaa80-8c2b-11ea-9cdb-f8b1947a55e9.png&quot;&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;아래 사진과 같이 Project Encoding방식을 &lt;code class=&quot;language-text&quot;&gt;x-windows-949&lt;/code&gt;로 바꿔준다. &lt;strong&gt;중요&lt;/strong&gt;
-파일들의 Encoding방식도 전부 &lt;code class=&quot;language-text&quot;&gt;x-windows-949&lt;/code&gt;로 바꿔준다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;바로 안 뜨면 &lt;code class=&quot;language-text&quot;&gt;more&lt;/code&gt;에 들어가면 있음! &lt;br&gt;
+&lt;li&gt;아래 사진과 같이 Project Encoding방식을 &lt;code class=&quot;language-text&quot;&gt;x-windows-949&lt;/code&gt;로 바꿔준다.
+&lt;strong&gt;(중요)&lt;/strong&gt; 파일들의 Encoding방식도 전부 &lt;code class=&quot;language-text&quot;&gt;x-windows-949&lt;/code&gt;로 바꿔준다.&lt;br&gt;
+바로 안 뜨면 &lt;code class=&quot;language-text&quot;&gt;more&lt;/code&gt;에 들어가면 있음! &lt;br&gt;
 &lt;img width=&quot;818&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 5 15 23&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80834216-36da9b00-8c2b-11ea-8f76-002a9a06124c.png&quot;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;li&gt;성공! 한글 잘 뜬다.&lt;br&gt;
 &lt;img width=&quot;280&quot; alt=&quot;&amp;#x1109;&amp;#x1173;&amp;#x110F;&amp;#x1173;&amp;#x1105;&amp;#x1175;&amp;#x11AB;&amp;#x1109;&amp;#x1163;&amp;#x11BA; 2020-04-30 &amp;#x110B;&amp;#x1169;&amp;#x1112;&amp;#x116E; 5 15 39&quot; src=&quot;https://user-images.githubusercontent.com/37680108/80834222-393cf500-8c2b-11ea-9fb3-6654da84c6fb.png&quot;&gt;&lt;/li&gt;
 &lt;/ol&gt;
