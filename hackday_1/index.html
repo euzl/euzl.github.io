@@ -577,13 +577,13 @@ converter <span class="token operator">=</span> tf<span class="token punctuation
 <p>모델이 불러와지지 않았습니다.</p>
 <p><code class="language-text">load_model()</code>이 안 되는 원인을 분석한 결과,</p>
 <ul>
-<li>h5파일에 model, weights둘 다 들어가 있으면 문제가 없습니다. <br>
-위의 경우가 아니라면, json을 통해 해결가능 → tf nightly에선 안 됩니다.. (이미 업데이트 함)<br></li>
+<li>h5파일에 model, weights둘 다 들어가 있으면 문제가 없습니다. <code class="language-text">model.save(&#39;model.h5&#39;)</code><br>
+위의 경우가 아니라면, json을 통해 해결가능 → tf nightly에선 안 됩니다..<br></li>
 <li><code class="language-text">model = Sequential() ...(중략)</code> 로 모델을 만들어준 다음 <code class="language-text">model.load_weights(&#39;model.h5&#39;)</code> 하면 학습한 모델과 같이 불러올 수 있습니다.<br>
 하지만 불러올 model과 레이어 등이 일치하게 만들어야 합니다.<br>
 그래서 '<em>준원님의 학습코드에서 에포크를 확 줄여서 학습하고 weight를 받아오면 되지 않을까?'</em> 라는 생각을 했는데 <code class="language-text">AttributeError: module &#39;tensorflow.python.framework.ops&#39; has no attribute &#39;_TensorLike&#39;</code> 이 에러 등장! 이게 뭐냐 하면 방금 전 json에서 발생한 에러와 같습니다. → tf nighly에선...<br><br></li>
 <li>현재 학습 코드도 tf nightly에서 돌아가지 않습니다.<br></li>
-<li>따라서 텐서플로우를 1.5로 다운그레이드 했습니다. (업뎃하는데 2시간 걸렸는데 ^^)<br>
+<li>따라서 텐서플로우를 1.5로 다운그레이드 했습니다.<br>
 <del>나중에 알게 되었지만, 처음엔 tf 버전2가 문제인 줄 알았고 버전1로 갔는데 그냥 nightly가 문제였습니다.</del><br>
 테스트를 위해 colab을 tf-nightly환경으로 만들어 놓았습니다. 그렇게 1.5와 tf-nightly 두 가지로 테스트해보기 시작했습니다.</li>
 </ul>
@@ -592,8 +592,8 @@ converter <span class="token operator">=</span> tf<span class="token punctuation
 <p><img width="420" alt="&#x1109;&#x1173;&#x110F;&#x1173;&#x1105;&#x1175;&#x11AB;&#x1109;&#x1163;&#x11BA; 2020-05-18 &#x110B;&#x1169;&#x110C;&#x1165;&#x11AB; 4 58 42" src="https://user-images.githubusercontent.com/37680108/82695528-3ff5df80-9ca0-11ea-9970-d861be9bb6d9.png"><br></p>
 <p>다행히 2020년인 지금 TFLiteConver을 통해 LSTM을 지원해줍니다.<br>
 <img width="420" alt="&#x1109;&#x1173;&#x110F;&#x1173;&#x1105;&#x1175;&#x11AB;&#x1109;&#x1163;&#x11BA; 2020-05-18 &#x110B;&#x1169;&#x110C;&#x1165;&#x11AB; 5 01 13" src="https://user-images.githubusercontent.com/37680108/82695533-42583980-9ca0-11ea-9ecf-4180553c244b.png"><br>
-하지만 tf 2점대에서만 지원한다는 점!!!<br>
-이 때만 하더라도 tf 2점대 버전이 tf-nightly인 줄 알았습니다. 무지한 게 죄입니다 ㅠㅠ <br>
+하지만 tf 버전2에서만 지원한다는 점!!!<br>
+이 때만 하더라도 tf 버전2가 tf-nightly인 줄 알았습니다. 무지한 게 죄입니다 ㅠㅠ <br>
 (tf-nightly는 개발 중인 버전이므로 불안정하다고 합니다.) <br>
 nightly에선 학습이 안 되고, TFLiteConverter는 2.0 이상에서 가능하니까 둘은 함께할 수 없다는 <strong>굉장히 아쉬운 판단</strong>을 내려버립니다.</p>
 <p>그렇게 시작된 삽질..!</p>
@@ -609,7 +609,7 @@ nightly에선 학습이 안 되고, TFLiteConverter는 2.0 이상에서 가능�
 <br><br></p>
 </blockquote>
 <p>그러다가 DL4J에 눈독을 들였고 잠시 갔다가 슬쩍 돌아왔습니다. ((2번) 참고)</p>
-<p>준원님께서 tflite변환코드가 있는 학습 코드를 올려주셔서 돌려보았습니다.
+<p>준원님께서 tflite로 변환하는 것 까지 있는 학습 코드를 올려주셔서 돌려보았습니다.
 테스트가 목적이었기 때문에 체크포인트 관련 코드는 주석처리했습니다.<br>
 <img width="530" alt="&#x1109;&#x1173;&#x110F;&#x1173;&#x1105;&#x1175;&#x11AB;&#x1109;&#x1163;&#x11BA; 2020-05-19 &#x110B;&#x1169;&#x110C;&#x1165;&#x11AB; 12 34 55" src="https://user-images.githubusercontent.com/37680108/82695738-a67afd80-9ca0-11ea-898e-48022b088446.png"><br>
 이런 에러가 발생했고, 준원님도 이 에러를 계속 만나셨다고...!</p>
@@ -620,7 +620,7 @@ File <span class="token string">"/Users/euzl/PycharmProjects/please/STT_Model.py
 model <span class="token operator">=</span> Sequential<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">..</span>.<span class="token punctuation">(</span>중략<span class="token punctuation">)</span>
 AttributeError: module <span class="token string">'tensorflow'</span> has no attribute <span class="token string">'get_default_graph'</span></code></pre></div>
-<p>위와 같은 에러가 발생했는데, 검색해보니 from keras를 from tensorflow.keras로 바꾸라고 했습니다. 그리고 <strong>갑자기 tflite가 만들어 집니다</strong>.... ?!</p>
+<p>위와 같은 에러가 발생했는데, 검색해보니 from keras를 from tensorflow.keras로 바꾸라고 했습니다. 그랬더니 <strong>갑자기 tflite가 만들어 집니다</strong>.... ?!</p>
 <p>tensorflow.keras로 바꾼 뒤 정확도 issue가 있었지만, 나중에 준원님께서 해결해 주셨습니다!
 (h5모델로 저장 뒤,  tflite변환에 성공하심.)<br><br></p>
 <h3 id="2-dl4j" style="position:relative;"><a href="#2-dl4j" aria-label="2 dl4j permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>(2) DL4J</h3>
@@ -631,14 +631,14 @@ AttributeError: module <span class="token string">'tensorflow'</span> has no att
 <li>JAVA코드를 통해 변환해야 했다.</li>
 <li>android studio에서 변환하려고 했는데.. 기본 셋팅이 엄청 어려웠다. </li>
 <li>시간은 없는데 새로 알아야 하는 정보가 너무 많았다. 안다고 해서 되리라는 보장도 없었다. 레퍼런스도 tflite도 적었는데 dl4j는 더 적었다.</li>
-<li>JAVA프로젝트를 만들어서 변환하려고 하고 있었다. 또 DL4J도 설치해야 했습니다.</li>
-<li>멘토님의 말을 듣고 확신 없는 것은 같기 때문에 tflite에 집중하기로 결정했습니다.
+<li>JAVA에서 변환하려고 하고 있었다. 그러려면 DL4J도 설치해야 했다.</li>
+<li>멘토님의 말을 듣고 확신 없는 것은 tflite와 같기 때문에 tflite에 집중하기로 결정했다.
 <br><br></li>
 </ol>
 <h2 id="2-안드로이드에-올리기" style="position:relative;"><a href="#2-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%97%90-%EC%98%AC%EB%A6%AC%EA%B8%B0" aria-label="2 안드로이드에 올리기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2) 안드로이드에 올리기</h2>
 <p>역할 분담을 통해, 만들어진 tflite파일을 이용해 안드로이드 연동을 시작했습니다.</p>
-<p>tensorflow에서 깃허브에 올린 'text classification'예제 코드와 'image classification'예제 코드를 분석하면서 interface를 이용해서 모델을 읽고 추론한다는 것을 알게 되었습니다.</p>
-<p><a href="https://quizee-ab.tistory.com/14" target="_blank" rel="nofollow noopener noreferrer">tensorflow-lite signiture 분석 - 인터프리터에 대한 설명 (링크)</a>
+<p>tensorflow에서 공개한 'Text classification'예제 코드와 'Image classification'예제 코드를 분석하면서 interface를 이용해서 모델을 읽고 추론한다는 것을 알게 되었습니다.</p>
+<p><a href="https://quizee-ab.tistory.com/14" target="_blank" rel="nofollow noopener noreferrer">tensorflow-lite 인터프리터에 대한 설명 (링크)</a>
 <br><br></p>
 <h3 id="1-모델-파일-안드로이드-프로젝트에-추가하기" style="position:relative;"><a href="#1-%EB%AA%A8%EB%8D%B8-%ED%8C%8C%EC%9D%BC-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0" aria-label="1 모델 파일 안드로이드 프로젝트에 추가하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>(1) 모델 파일 안드로이드 프로젝트에 추가하기</h3>
 <ol>
@@ -657,7 +657,7 @@ AttributeError: module <span class="token string">'tensorflow'</span> has no att
 		implementation &#39;org.tensorflow:tensorflow-lite:+&#39;
 }</code></pre></div>
 <br>
-2) build.gradle (Module :app) 의 android부분에 `aaptOptions` 추가<br>
+2) build.gradle (Module :app) 의 android부분에 `aaptOptions` 추가 <br>
 → 모델  파일이 압축되는 것을 방지함 (이걸 하지 않으면 메모리를 절약하기 위해 리소스를 압축한다고 하네요)
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">android {
 		...
@@ -674,7 +674,7 @@ AttributeError: module <span class="token string">'tensorflow'</span> has no att
 <img width="700" alt="&#x1109;&#x1173;&#x110F;&#x1173;&#x1105;&#x1175;&#x11AB;&#x1109;&#x1163;&#x11BA; 2020-05-19 &#x110B;&#x1169;&#x1112;&#x116E; 8 06 21" src="https://user-images.githubusercontent.com/37680108/82695909-f5c12e00-9ca0-11ea-9c8f-09228e1011d2.png"></p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">2020-05-20 01:20:52.272 16860-16860/com.euzl.plztflite E/AndroidRuntime: FATAL EXCEPTION: main
     java.lang.IllegalArgumentException: Cannot convert between a TensorFlowLite tensor with type FLOAT32 and a Java object of type [Ljava.lang.String; (which is compatible with the TensorFlowLite type STRING).</code></pre></div>
-<p>괜히 input타입만 float로 바꿔 보았지만 효과는 없었다. <br>
+<p>input타입을 float로 바꿔 보았지만 효과는 없었다. <br>
 아는 분께 <code class="language-text">tflite.run(input, output)</code> 에서 안 된다고 했더니 '모델의 input, output이 뭐냐'고 물어 보셨다. 그렇다. 나는 <strong>모델의 input과 output도 모른채</strong> 연동하고 있었다.</p>
 <p>모델 학습 코드를 찬찬히 다시 살펴봤다. 학습 전 데이터와 라벨에 <code class="language-text">정수 인코딩</code>을 해준 뒤 라벨만 <code class="language-text">원-핫 인코딩</code>을 하는 부분이 있었다. 따라서 인풋은 정수이고, 라벨은 정수로 된 이중 벡터일 것이라 생각했다. <code class="language-text">[[0, 0, 1], [0, 1, 0], [1, 0, 0]]</code> 이런 느낌! </p>
 <p>이렇게 수정해서 넣었는데 실패 ~!
@@ -694,7 +694,7 @@ sgx: Long live credential not available.</code></pre></div>
 <br><br></p>
 <p><strong>1. input 전처리</strong></p>
 <p>input을 전처리하는 부분 코드를 보니 사용자가 입력한 텍스트를 어절 단위로 쪼갠 뒤, vocab를 통해서 정수로 바꿔주었다. 그런데 이 방식이 모델 학습시 정수인코딩할 때 하는 Tokenizer와 같았다. 따라서 tokenizer의 내장함수를 이용해서 vocab파일을 만들었다. <br>
-그리고 input데이터에 padding이 포함되어있어서 padding크기를 받아 맞춰주었다.
+그리고 input데이터에 padding이 포함되어있어서 (input+padding)전체 길이를 받아 맞춰주었다.
 <br><br></p>
 <p><strong>2. output 찾기</strong></p>
 <p>output의 형태를 미리 알아야 하는 이유는 <code class="language-text">tflite.run(input, output);</code> 로 파라미터를 넣어서 호출한다. 따라서 input을 넣어 추론한 결과가 output에 저장되어 나온다.</p>
@@ -707,7 +707,7 @@ sgx: Long live credential not available.</code></pre></div>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">'name'</span><span class="token builtin class-name">:</span> <span class="token string">'Identity'</span>, <span class="token string">'index'</span><span class="token builtin class-name">:</span> <span class="token number">126</span>, <span class="token string">'shape'</span><span class="token builtin class-name">:</span> array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>, <span class="token assign-left variable">dtype</span><span class="token operator">=</span>int32<span class="token punctuation">)</span>, <span class="token string">'shape_signature'</span><span class="token builtin class-name">:</span> array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>, <span class="token assign-left variable">dtype</span><span class="token operator">=</span>int32<span class="token punctuation">)</span>, <span class="token string">'dtype'</span><span class="token builtin class-name">:</span> <span class="token operator">&lt;</span>class <span class="token string">'numpy.float32'</span><span class="token operator">></span>, <span class="token string">'quantization'</span><span class="token builtin class-name">:</span> <span class="token punctuation">(</span><span class="token number">0.0</span>, <span class="token number">0</span><span class="token punctuation">)</span>, <span class="token string">'quantization_parameters'</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token string">'scales'</span><span class="token builtin class-name">:</span> array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>, <span class="token assign-left variable">dtype</span><span class="token operator">=</span>float32<span class="token punctuation">)</span>, <span class="token string">'zero_points'</span><span class="token builtin class-name">:</span> array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>, <span class="token assign-left variable">dtype</span><span class="token operator">=</span>int32<span class="token punctuation">)</span>, <span class="token string">'quantized_dimension'</span><span class="token builtin class-name">:</span> <span class="token number">0</span><span class="token punctuation">}</span>, <span class="token string">'sparsity_parameters'</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre></div>
 <p>흠.. dtype을 봤을 때 float로 된 배열이라는 것만 알겠다..</p>
 <p>그렇게 삽질만 하다가 오프라인 미팅을 정하기 위한 마지막 전체 행아웃 회의를 했다. 끝나고 준원님과 행아웃에 남아서 input, output을 찾기 시작했다.</p>
-<p>예제 프로젝트를 분석하다가 알게 되었는데, 안드로이드에서 인터프리터를 통해 나오는 output은 각 라벨에 대한 정확도이다. 예제 같은 경우 라벨이 2개인데, <code class="language-text">[[0.35 0.65] [0.53 0.47] ...]</code> 이런 형식으로 output에 저장되었다. 이때 두번째 데이터부터 패딩이라면 output[0]만이 필요한 부분이다. output[2]부터는 패딩에 대한 결과이기 때문이다. (input으로 넣어주는 데이터의 갯수마다 다르다. 만약 input이 다섯개까지 의미 있는 데이터라면, output[5]부터 패딩에 대한 결과다. 우리 모델은 첫번째 데이터 빼고 다 패딩값이다. 그냥 input과 매칭된다 생각하면 됨! LSTM의 many-to-many를 사용해서 그렇다.)</p>
+<p>예제 프로젝트를 분석하다가 알게 되었는데, 안드로이드에서 인터프리터를 통해 나오는 output은 각 라벨에 대한 정확도이다. 예제 같은 경우 라벨이 2개인데, <code class="language-text">[[0.35 0.65] [0.53 0.47] ...]</code> 이런 형식으로 output에 저장되었다. (ex. 라벨1정확도 = 0.35, 라벨2정확도 = 0.65)이때 두번째 데이터부터 패딩이라면 output[0]만이 필요한 부분이다. output[1]부터는 패딩에 대한 결과이기 때문이다. (input으로 넣어주는 데이터의 갯수마다 다르다. 만약 input이 다섯개까지 의미 있는 데이터라면, output[5]부터 패딩에 대한 결과다. 우리 모델은 첫번째 데이터 빼고 다 패딩값이다. 그냥 input과 매칭된다 생각하면 됨! LSTM의 many-to-many를 사용해서 그렇다.)</p>
 <p>암튼 파이썬 코드에서 예측값, 실제값을 출력하는 코드를 보다가 준원님과 출력했다.</p>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python">y_predicted <span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>X_test<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
 <p><code class="language-text">print(y_predicted)</code>의 결과 ㅠㅠ</p>
