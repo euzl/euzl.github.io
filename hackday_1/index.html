@@ -622,7 +622,7 @@ model <span class="token operator">=</span> Sequential<span class="token punctua
 AttributeError: module <span class="token string">'tensorflow'</span> has no attribute <span class="token string">'get_default_graph'</span></code></pre></div>
 <p>위와 같은 에러가 발생했는데, 검색해보니 from keras를 from tensorflow.keras로 바꾸라고 했습니다. 그랬더니 <strong>갑자기 tflite가 만들어 집니다</strong>.... ?!</p>
 <p>tensorflow.keras로 바꾼 뒤 정확도 issue가 있었지만, 나중에 준원님께서 해결해 주셨습니다!
-(h5모델로 저장 뒤,  tflite변환에 성공하심.)<br><br></p>
+(해결법 요약 : 다시 from keras로 바꿈 -> h5모델로 저장 -> tflite로 변환)<br><br></p>
 <h3 id="2-dl4j" style="position:relative;"><a href="#2-dl4j" aria-label="2 dl4j permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>(2) DL4J</h3>
 <p>간단히 넘어가겠습니다.</p>
 <ol>
