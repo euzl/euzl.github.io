@@ -717,7 +717,7 @@ sgx: Long live credential not available.</code></pre></div>
 <br><br></p>
 <p><strong>3. 실행 그리고 성공</strong></p>
 <p>또 또 또 실행이 안 됐다. <code class="language-text">(3)번 에러</code> 발생.. 무엇이 문제일까 하다가 android에 있는 labels에는 라벨이 7개인데 파이썬에선 8개인게 발견되었다. 'type'도 들어갔기 때문..! 라벨파일에 type도 추가해주었다.</p>
-<p>또한, 학습 코드에서 <code class="language-text">tag_size = len(tar_tokenizer.word_index) + 1</code> 이 부분이 있기 때문에 <code class="language-text">labels.size() + 1</code> 해줬다. 성공적⭐️</p>
+<p>또한, 학습 코드에서 <code class="language-text">tag_size = len(tar_tokenizer.word_index) + 1</code> 이 부분이 있기 때문에 <code class="language-text">labels.size() + 1</code> 해줬다. ('00V'가 추가돼서 tag개수에 +1 해준 것) 성공적⭐️</p>
 <p>최종 input, output이다. (MAX_LEN == 패딩을 포함한 인풋길이)<br>
 <img width="400" alt="&#x1109;&#x1173;&#x110F;&#x1173;&#x1105;&#x1175;&#x11AB;&#x1109;&#x1163;&#x11BA; 2020-05-23 &#x110B;&#x1169;&#x110C;&#x1165;&#x11AB; 2 16 13" src="https://user-images.githubusercontent.com/37680108/82696104-56e90180-9ca1-11ea-8e1b-c5f8d76a3749.png"><br>
 그랬더니 드디어!! run함수를 지나갔다!!!<br>
